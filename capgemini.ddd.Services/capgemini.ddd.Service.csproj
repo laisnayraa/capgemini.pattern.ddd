@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\capgemini.ddd.Domain\capgemini.ddd.Domain.csproj" />
+    <ProjectReference Include="..\capgemini.ddd.Infra\capgemini.ddd.Infra.csproj" />
+  </ItemGroup>
+
+</Project>
