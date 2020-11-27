@@ -9,7 +9,6 @@ namespace capgemini.ddd.Infra.Context
         public DataBaseContext(DbContextOptions<DataBaseContext> options) : base(options) { }
 
         public DbSet<Aluno> Aluno { get; set; }
-        //public DbSet<Instrutor> Instrutor { get; set; }
         public DbSet<Turma> Turma { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -46,28 +45,6 @@ namespace capgemini.ddd.Infra.Context
                     .HasForeignKey(_ => _.IdTurma);
             });
 
-            //modelBuilder.Entity<Instrutor>(b =>
-            //{
-            //    b.HasKey(p => p.Id);
-
-            //    b.Property(_ => _.NomeCompleto)
-            //    .IsRequired()
-            //    .HasMaxLength(80);
-
-            //    b.Property(_ => _.CPF)
-            //        .IsRequired()
-            //        .HasMaxLength(15);
-
-            //    b.Property(_ => _.Contato)
-            //        .IsRequired()
-            //        .HasMaxLength(15);
-
-            //    //RelationShip
-            //    b.HasOne(_ => _.Turma)
-            //        .WithMany()
-            //        .HasForeignKey(_ => _.IdTurma);
-            //});
-
             modelBuilder.Entity<Turma>(b =>
             {
                 b.HasKey(p => p.Id);
@@ -83,11 +60,6 @@ namespace capgemini.ddd.Infra.Context
                     .WithMany()
                     .OnDelete(DeleteBehavior.Restrict)
                     .HasForeignKey(_ => _.IdAluno);
-
-                //b.HasOne(_ => _.Instrutor)
-                //    .WithMany()
-                //    .OnDelete(DeleteBehavior.Restrict)
-                //    .HasForeignKey(_ => _.IdInstrutor);
             });
         }
     }
